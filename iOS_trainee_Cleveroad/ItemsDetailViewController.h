@@ -7,25 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "ListItem.h"
+#import "ListItem.h"
 #import "DataAPI.h"
-//@class ItemsDetailViewController;
-//
-//@protocol ItemsDetailViewControllerDelegate <NSObject>
-//@required
-//
-//-(void) userDidAddNote:(ListItem *)note inController:(ItemsDetailViewController *)controller;
-//-(void) userDidFinishEditNote:(ListItem *)note inController:(ItemsDetailViewController *)controller;
-//
-//@end
 
 @interface ItemsDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
-//@property (assign) id<ItemsDetailViewControllerDelegate> delegate;
-
 @property (nonatomic, strong) DataAPI *data;
+@property (nonatomic, strong) ListItem *note;
 
 @end

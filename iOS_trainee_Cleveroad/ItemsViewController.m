@@ -28,8 +28,10 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    NSLog(@"***hi");
+    _items = nil;
     _items = [self.data getItems];
+    NSLog(@"!!!%lu", (unsigned long)[[_data getItems] count]);
     [self.tableView reloadData];
 }
 
@@ -50,7 +52,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self performSegueWithIdentifier:@"EditItem" sender:nil];
+    [self performSegueWithIdentifier:@"EditItem" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -76,8 +78,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddItem"]) {
-        ItemsDetailViewController *detailsViewController = segue.destinationViewController;
+        ItemsDetailViewController *detailsViewController = (ItemsDetailViewController *)segue.destinationViewController;
         detailsViewController.data = self.data;
+    } else if ([segue.identifier isEqualToString:@"EditItem"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        ListItem *note = _items[indexPath.row];
+        ItemsDetailViewController *detailsViewController = (ItemsDetailViewController *)segue.destinationViewController;
+        detailsViewController.note = note;
     }
 }
 

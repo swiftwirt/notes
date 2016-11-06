@@ -16,12 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.titleTextField becomeFirstResponder];
+    if (self.note) {
+        self.title = @"Edit Note";
+        self.titleTextField.text = self.note.itemTitle;
+        self.descriptionTextView.text = self.note.itemDescription;
+    }
 }
 
 - (IBAction)onSaveNoteButton:(id)sender {
-    [_data addItemWithName:self.titleTextField.text andDescription:self.descriptionTextView.text];
-    [self.navigationController popViewControllerAnimated:true];
+    if (self.note) {
+        [_data deleteItemWithID:self.note.itemID];
+        [_data addItemWithName:self.titleTextField.text andDescription:self.descriptionTextView.text];
+        self.note = nil;        
+        [self.navigationController popViewControllerAnimated:true];
+    } else {
+        [_data addItemWithName:self.titleTextField.text andDescription:self.descriptionTextView.text];
+        [self.navigationController popViewControllerAnimated:true];
+    }
 }
 
 @end

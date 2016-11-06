@@ -17,6 +17,7 @@
 		D04D7B4B1DCE7D83006F30A7 /* ItemsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B4A1DCE7D83006F30A7 /* ItemsDetailViewController.m */; };
 		D04D7B4E1DCEFC65006F30A7 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B4D1DCEFC65006F30A7 /* DataModel.m */; };
 		D04D7B511DCF0596006F30A7 /* DataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B501DCF0596006F30A7 /* DataAPI.m */; };
+		D04D7BA41DCF8B8B006F30A7 /* NSMutableArray+Swap.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7BA31DCF8B8B006F30A7 /* NSMutableArray+Swap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		D04D7B4D1DCEFC65006F30A7 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		D04D7B4F1DCF0596006F30A7 /* DataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAPI.h; sourceTree = "<group>"; };
 		D04D7B501DCF0596006F30A7 /* DataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAPI.m; sourceTree = "<group>"; };
+		D04D7BA21DCF8B8B006F30A7 /* NSMutableArray+Swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Swap.h"; sourceTree = "<group>"; };
+		D04D7BA31DCF8B8B006F30A7 /* NSMutableArray+Swap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Swap.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,7 @@
 		D04D7B241DCE7AF8006F30A7 /* iOS_trainee_Cleveroad */ = {
 			isa = PBXGroup;
 			children = (
+				D04D7BA11DCF8B1B006F30A7 /* Categories */,
 				D04D7B461DCE7B69006F30A7 /* Other */,
 				D04D7B451DCE7B5B006F30A7 /* Controllers */,
 				D04D7B471DCE7B76006F30A7 /* Models */,
@@ -129,6 +133,15 @@
 				D04D7B331DCE7AFB006F30A7 /* LaunchScreen.storyboard */,
 			);
 			name = "Storyboards&Nibs";
+			sourceTree = "<group>";
+		};
+		D04D7BA11DCF8B1B006F30A7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D04D7BA21DCF8B8B006F30A7 /* NSMutableArray+Swap.h */,
+				D04D7BA31DCF8B8B006F30A7 /* NSMutableArray+Swap.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D04D7BA41DCF8B8B006F30A7 /* NSMutableArray+Swap.m in Sources */,
 				D04D7B2A1DCE7AFA006F30A7 /* AppDelegate.m in Sources */,
 				D04D7B4B1DCE7D83006F30A7 /* ItemsDetailViewController.m in Sources */,
 				D04D7B431DCE7B44006F30A7 /* ItemsViewController.m in Sources */,
@@ -368,6 +382,7 @@
 				D04D7B3B1DCE7AFB006F30A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
