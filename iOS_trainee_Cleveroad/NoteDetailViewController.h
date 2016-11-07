@@ -1,5 +1,5 @@
 //
-//  ItemsDetailViewController.h
+//  NoteDetailViewController.h
 //  iOS_trainee_Cleveroad
 //
 //  Created by Ivashin Dmitry on 11/5/16.
@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ListItem.h"
+#import "Note.h"
 #import "DataAPI.h"
 
-@interface ItemsDetailViewController : UIViewController
+@interface NoteDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @property (nonatomic, strong) DataAPI *data;
-@property (nonatomic, strong) ListItem *note;
+@property (nonatomic, strong) Note *note;
 
 @end

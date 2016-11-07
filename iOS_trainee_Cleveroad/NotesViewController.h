@@ -1,5 +1,5 @@
 //
-//  ItemsViewController.h
+//  NotesViewController.h
 //  ТЗ_iOS_trainee_Cleveroad
 //
 //  Created by Ivashin Dmitry on 11/5/16.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DataAPI.h"
 
-@interface ItemsViewController : UIViewController
+@interface NotesViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

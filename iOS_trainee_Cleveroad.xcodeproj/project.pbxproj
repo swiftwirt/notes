@@ -12,12 +12,13 @@
 		D04D7B301DCE7AFA006F30A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04D7B2E1DCE7AFA006F30A7 /* Main.storyboard */; };
 		D04D7B321DCE7AFB006F30A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D04D7B311DCE7AFB006F30A7 /* Assets.xcassets */; };
 		D04D7B351DCE7AFB006F30A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04D7B331DCE7AFB006F30A7 /* LaunchScreen.storyboard */; };
-		D04D7B3E1DCE7B3A006F30A7 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B3D1DCE7B3A006F30A7 /* ListItem.m */; };
-		D04D7B431DCE7B44006F30A7 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B401DCE7B44006F30A7 /* ItemsViewController.m */; };
-		D04D7B4B1DCE7D83006F30A7 /* ItemsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B4A1DCE7D83006F30A7 /* ItemsDetailViewController.m */; };
-		D04D7B4E1DCEFC65006F30A7 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B4D1DCEFC65006F30A7 /* DataModel.m */; };
+		D04D7B3E1DCE7B3A006F30A7 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B3D1DCE7B3A006F30A7 /* Note.m */; };
+		D04D7B431DCE7B44006F30A7 /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B401DCE7B44006F30A7 /* NotesViewController.m */; };
+		D04D7B4B1DCE7D83006F30A7 /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B4A1DCE7D83006F30A7 /* NoteDetailViewController.m */; };
+		D04D7B4E1DCEFC65006F30A7 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B4D1DCEFC65006F30A7 /* PersistencyManager.m */; };
 		D04D7B511DCF0596006F30A7 /* DataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7B501DCF0596006F30A7 /* DataAPI.m */; };
 		D04D7BA41DCF8B8B006F30A7 /* NSMutableArray+Swap.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7BA31DCF8B8B006F30A7 /* NSMutableArray+Swap.m */; };
+		D04D7BA71DCF9827006F30A7 /* NSMutableArray+SellSort.m in Sources */ = {isa = PBXBuildFile; fileRef = D04D7BA61DCF9827006F30A7 /* NSMutableArray+SellSort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,18 +30,20 @@
 		D04D7B311DCE7AFB006F30A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D04D7B341DCE7AFB006F30A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D04D7B361DCE7AFB006F30A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D04D7B3C1DCE7B3A006F30A7 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
-		D04D7B3D1DCE7B3A006F30A7 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
-		D04D7B3F1DCE7B44006F30A7 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
-		D04D7B401DCE7B44006F30A7 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
-		D04D7B491DCE7D83006F30A7 /* ItemsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsDetailViewController.h; sourceTree = "<group>"; };
-		D04D7B4A1DCE7D83006F30A7 /* ItemsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsDetailViewController.m; sourceTree = "<group>"; };
-		D04D7B4C1DCEFC65006F30A7 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
-		D04D7B4D1DCEFC65006F30A7 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		D04D7B3C1DCE7B3A006F30A7 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		D04D7B3D1DCE7B3A006F30A7 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		D04D7B3F1DCE7B44006F30A7 /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesViewController.h; sourceTree = "<group>"; };
+		D04D7B401DCE7B44006F30A7 /* NotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesViewController.m; sourceTree = "<group>"; };
+		D04D7B491DCE7D83006F30A7 /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
+		D04D7B4A1DCE7D83006F30A7 /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
+		D04D7B4C1DCEFC65006F30A7 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
+		D04D7B4D1DCEFC65006F30A7 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
 		D04D7B4F1DCF0596006F30A7 /* DataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAPI.h; sourceTree = "<group>"; };
 		D04D7B501DCF0596006F30A7 /* DataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAPI.m; sourceTree = "<group>"; };
 		D04D7BA21DCF8B8B006F30A7 /* NSMutableArray+Swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Swap.h"; sourceTree = "<group>"; };
 		D04D7BA31DCF8B8B006F30A7 /* NSMutableArray+Swap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Swap.m"; sourceTree = "<group>"; };
+		D04D7BA51DCF9827006F30A7 /* NSMutableArray+SellSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SellSort.h"; sourceTree = "<group>"; };
+		D04D7BA61DCF9827006F30A7 /* NSMutableArray+SellSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SellSort.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +99,10 @@
 		D04D7B451DCE7B5B006F30A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D04D7B3F1DCE7B44006F30A7 /* ItemsViewController.h */,
-				D04D7B401DCE7B44006F30A7 /* ItemsViewController.m */,
-				D04D7B491DCE7D83006F30A7 /* ItemsDetailViewController.h */,
-				D04D7B4A1DCE7D83006F30A7 /* ItemsDetailViewController.m */,
+				D04D7B3F1DCE7B44006F30A7 /* NotesViewController.h */,
+				D04D7B401DCE7B44006F30A7 /* NotesViewController.m */,
+				D04D7B491DCE7D83006F30A7 /* NoteDetailViewController.h */,
+				D04D7B4A1DCE7D83006F30A7 /* NoteDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -118,10 +121,10 @@
 			children = (
 				D04D7B4F1DCF0596006F30A7 /* DataAPI.h */,
 				D04D7B501DCF0596006F30A7 /* DataAPI.m */,
-				D04D7B4C1DCEFC65006F30A7 /* DataModel.h */,
-				D04D7B4D1DCEFC65006F30A7 /* DataModel.m */,
-				D04D7B3C1DCE7B3A006F30A7 /* ListItem.h */,
-				D04D7B3D1DCE7B3A006F30A7 /* ListItem.m */,
+				D04D7B4C1DCEFC65006F30A7 /* PersistencyManager.h */,
+				D04D7B4D1DCEFC65006F30A7 /* PersistencyManager.m */,
+				D04D7B3C1DCE7B3A006F30A7 /* Note.h */,
+				D04D7B3D1DCE7B3A006F30A7 /* Note.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -140,6 +143,8 @@
 			children = (
 				D04D7BA21DCF8B8B006F30A7 /* NSMutableArray+Swap.h */,
 				D04D7BA31DCF8B8B006F30A7 /* NSMutableArray+Swap.m */,
+				D04D7BA51DCF9827006F30A7 /* NSMutableArray+SellSort.h */,
+				D04D7BA61DCF9827006F30A7 /* NSMutableArray+SellSort.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -217,13 +222,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04D7BA41DCF8B8B006F30A7 /* NSMutableArray+Swap.m in Sources */,
+				D04D7BA71DCF9827006F30A7 /* NSMutableArray+SellSort.m in Sources */,
 				D04D7B2A1DCE7AFA006F30A7 /* AppDelegate.m in Sources */,
-				D04D7B4B1DCE7D83006F30A7 /* ItemsDetailViewController.m in Sources */,
-				D04D7B431DCE7B44006F30A7 /* ItemsViewController.m in Sources */,
+				D04D7B4B1DCE7D83006F30A7 /* NoteDetailViewController.m in Sources */,
+				D04D7B431DCE7B44006F30A7 /* NotesViewController.m in Sources */,
 				D04D7B271DCE7AF9006F30A7 /* main.m in Sources */,
-				D04D7B3E1DCE7B3A006F30A7 /* ListItem.m in Sources */,
+				D04D7B3E1DCE7B3A006F30A7 /* Note.m in Sources */,
 				D04D7B511DCF0596006F30A7 /* DataAPI.m in Sources */,
-				D04D7B4E1DCEFC65006F30A7 /* DataModel.m in Sources */,
+				D04D7B4E1DCEFC65006F30A7 /* PersistencyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

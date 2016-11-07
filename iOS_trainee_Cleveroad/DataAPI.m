@@ -7,12 +7,12 @@
 //
 
 #import "DataAPI.h"
-#import "DataModel.h"
-#import "ListItem.h"
+#import "PersistencyManager.h"
+#import "Note.h"
 
 @interface DataAPI ()
 
-@property (nonatomic, strong) DataModel *dataModel;
+@property (nonatomic, strong) PersistencyManager *dataModel;
 
 @end
 
@@ -29,20 +29,21 @@
 
 -(id)init {
     if (self = [super init]) {
-        _dataModel = [DataModel new];
-        [self handleFirstLaunch];
+         [self registerDefaults];
+         [self handleFirstLaunch];
+        _dataModel = [PersistencyManager new];
     }
     return self;
 }
 
-- (NSMutableArray *)getItems
+- (NSMutableArray *)getNotes
 {
     NSMutableArray *tempArray = [NSMutableArray new];
-    NSDictionary *tempDictionary = [_dataModel getAllItems];
+    NSDictionary *tempDictionary = [_dataModel getNotes];
     for (NSString *ID in tempDictionary) {
         if (ID.integerValue) {
             NSData *itemData = tempDictionary[ID];
-            ListItem *itemDetails = [NSKeyedUnarchiver unarchiveObjectWithData:itemData];
+            Note *itemDetails = [NSKeyedUnarchiver unarchiveObjectWithData:itemData];
             if (itemDetails) {
                 [tempArray addObject:itemDetails];
             }
@@ -51,28 +52,40 @@
     return tempArray;
 }
 
-- (void)addItemWithName:(NSString *)name andDescription:(NSString *)description
+- (void) addNoteWithTitle:(NSString *)name andDescription:(NSString *)description
 {
     NSUInteger id = [self nextNoteID];
     NSString *stringID = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)id];
     NSLog(@"*****%@", stringID);
     if (description) {
-       ListItem *item = [[ListItem alloc] initWithTitle:name description:description andID:stringID];
-       [_dataModel addItemWithID:stringID item:item];
+       Note *note = [[Note alloc] initWithTitle:name description:description andID:stringID];
+       [_dataModel addNoteWithID:stringID note:note];
     } else {
-       ListItem *item = [[ListItem alloc] initWithTitle:name andID:stringID];
-       [_dataModel addItemWithID:stringID item:item];
+       Note *note = [[Note alloc] initWithTitle:name andID:stringID];
+       [_dataModel addNoteWithID:stringID note:note];
     }
 }
 
-- (void) deleteItemWithID:(NSString *)ID {
-    [_dataModel deleteItemWithID:ID];
+- (void) deleteNoteWithID:(NSString *)ID {
+    [_dataModel deleteNoteWithID:ID];
 }
 
 -(void) registerDefaults {
-    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys: @"firstTime", true,
-                                                                            @"nextID", 1, nil];
+    NSNumber *first = [NSNumber numberWithInt:1];
+    NSNumber *id = [NSNumber numberWithInt:1];
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys: first, @"firstTime",
+                                id, @"nextID", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+}
+
+-(void) handleFirstLaunch {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSUInteger firstTime = [userDefaults integerForKey:@"firstTime"];
+    if (firstTime == 1) {
+        NSLog(@"$$$");        
+        [userDefaults setInteger:2 forKey:@"firstTime"];
+        [userDefaults synchronize];
+    }
 }
 
 -(NSUInteger) nextNoteID {
@@ -81,16 +94,6 @@
     [userDefaults setInteger:ID + 1 forKey:@"nextID"];
     [userDefaults synchronize];
     return ID;
-}
-
--(void) handleFirstLaunch {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL firstTime = [userDefaults boolForKey:@"firstTime"];
-    if (firstTime) {
-        [self registerDefaults];
-        [userDefaults setBool:false forKey:@"firstTime"];
-        [userDefaults synchronize];
-    }
 }
 
 @end

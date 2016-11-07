@@ -1,22 +1,23 @@
 //
-//  ItemsViewController.m
+//  NotesViewController.m
 //  ТЗ_iOS_trainee_Cleveroad
 //
 //  Created by Ivashin Dmitry on 11/5/16.
 //  Copyright © 2016 Ivashin Dmitry. All rights reserved.
 //
 
-#import "ItemsViewController.h"
-#import "ItemsDetailViewController.h"
-#import "ListItem.h"
+#import "NSMutableArray+SellSort.h"
+#import "NotesViewController.h"
+#import "NoteDetailViewController.h"
+#import "Note.h"
 
-@interface ItemsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface NotesViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray *notes;
 
 @end
 
-@implementation ItemsViewController
+@implementation NotesViewController
 
 - (void)viewDidLoad
 {
@@ -28,23 +29,21 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"***hi");
-    _items = nil;
-    _items = [self.data getItems];
-    NSLog(@"!!!%lu", (unsigned long)[[_data getItems] count]);
+    _notes = nil;
+    _notes = [self.data getNotes];
     [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _items.count;
+    return _notes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    ListItem *item = _items[indexPath.row];
-    cell.textLabel.text = item.itemTitle;
+    Note *note = _notes[indexPath.row];
+    cell.textLabel.text = note.noteTitle;
     return cell;
 }
 
@@ -58,9 +57,9 @@
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *deleteButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Remove" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
-        ListItem *item = _items[indexPath.row];
-        [self.data deleteItemWithID:item.itemID];
-        _items = [self.data getItems];
+        Note *note = _notes[indexPath.row];
+        [self.data deleteNoteWithID:note.noteID];
+        _notes = [self.data getNotes];
         [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     deleteButton.backgroundColor = [UIColor orangeColor];
@@ -78,12 +77,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddItem"]) {
-        ItemsDetailViewController *detailsViewController = (ItemsDetailViewController *)segue.destinationViewController;
+        NoteDetailViewController *detailsViewController = (NoteDetailViewController *)segue.destinationViewController;
         detailsViewController.data = self.data;
     } else if ([segue.identifier isEqualToString:@"EditItem"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        ListItem *note = _items[indexPath.row];
-        ItemsDetailViewController *detailsViewController = (ItemsDetailViewController *)segue.destinationViewController;
+        Note *note = _notes[indexPath.row];
+        NoteDetailViewController *detailsViewController = (NoteDetailViewController *)segue.destinationViewController;
+        detailsViewController.data = self.data;
         detailsViewController.note = note;
     }
 }

@@ -12,7 +12,7 @@
         <!--List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ItemsViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NotesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List" id="Dzx-D4-1uE">
-                        <barButtonItem key="rightBarButtonItem" title="Add" style="plain" id="6qf-QC-1NL">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="6qf-QC-1NL">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onAddItemBarButton:" destination="BYZ-38-t0r" id="LBB-GB-IAm"/>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="234" y="145"/>
         </scene>
-        <!--Add Item-->
+        <!--Add note-->
         <scene sceneID="vZC-C3-l0f">
             <objects>
-                <viewController id="Wbc-aS-8v2" customClass="ItemsDetailViewController" sceneMemberID="viewController">
+                <viewController id="Wbc-aS-8v2" customClass="NoteDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fXk-su-IgN"/>
                         <viewControllerLayoutGuide type="bottom" id="VWJ-N0-kms"/>
@@ -64,19 +64,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NyJ-Yq-Lgl">
-                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NyJ-Yq-Lgl">
+                                <rect key="frame" x="0.0" y="113" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Wbc-aS-8v2" id="B79-oa-BJ7"/>
+                                </connections>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-qb-9yI">
-                                <rect key="frame" x="56" y="70" width="311" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CL-Cn-OV5" userLabel="Line">
+                                <rect key="frame" x="0.0" y="124" width="375" height="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kr-r7-g9a">
                                 <rect key="frame" x="16" y="75" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -84,17 +88,18 @@
                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-qb-9yI">
+                                <rect key="frame" x="55" y="74" width="311" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NyJ-Yq-Lgl" firstAttribute="top" secondItem="fXk-su-IgN" secondAttribute="bottom" constant="44" id="P6V-G8-cYZ"/>
-                            <constraint firstAttribute="trailing" secondItem="NyJ-Yq-Lgl" secondAttribute="trailing" id="k3t-Ge-7vR"/>
-                            <constraint firstItem="NyJ-Yq-Lgl" firstAttribute="leading" secondItem="Z2j-bj-hu3" secondAttribute="leading" id="tbW-gI-rxQ"/>
-                            <constraint firstItem="VWJ-N0-kms" firstAttribute="top" secondItem="NyJ-Yq-Lgl" secondAttribute="bottom" id="vjS-S5-xaV"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Item" id="hOk-eD-L6J">
+                    <navigationItem key="navigationItem" title="Add note" id="hOk-eD-L6J">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="1vG-kq-DYv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -110,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOh-id-TOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893.60000000000002" y="143.47826086956522"/>
+            <point key="canvasLocation" x="906.39999999999998" y="144.3778110944528"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9ZU-tx-COT">

@@ -12,8 +12,8 @@
 
 + (DataAPI *)sharedInstance;
 
-- (NSMutableArray *)getItems;
-- (void)addItemWithName:(NSString *)name andDescription:(NSString *)description;
-- (void) deleteItemWithID:(NSString *)ID;
+- (NSMutableArray *)getNotes;
+- (void)addNoteWithTitle:(NSString *)name andDescription:(NSString *)description;
+- (void) deleteNoteWithID:(NSString *)ID;
 
 @end

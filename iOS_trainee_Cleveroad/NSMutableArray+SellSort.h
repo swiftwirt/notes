@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+Swap.h
+//  NSMutableArray+SellSort.h
 //  iOS_trainee_Cleveroad
 //
 //  Created by Ivashin Dmitry on 11/6/16.
@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableArray (Swap)
-
-- (void)swapObjectAtIndex:(NSUInteger)firstIndex withObjectAtIndex:(NSUInteger)secondIndex;
+@interface NSMutableArray (SellSort)
 
 @end

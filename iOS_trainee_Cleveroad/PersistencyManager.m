@@ -1,32 +1,32 @@
 //
-//  DataModel.m
+//  PersistencyManager.m
 //  iOS_trainee_Cleveroad
 //
 //  Created by Ivashin Dmitry on 11/6/16.
 //  Copyright © 2016 Ivashin Dmitry. All rights reserved.
 //
 
-#import "DataModel.h"
+#import "PersistencyManager.h"
 
-@interface DataModel ()
+@interface PersistencyManager ()
 
 @end
 
-@implementation DataModel
+@implementation PersistencyManager
 
--(NSDictionary *)getAllItems
+-(NSDictionary *)getNotes
 {
     return [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 }
 
--(void)deleteItemWithID:(NSString *)ID
+-(void)deleteNoteWithID:(NSString *)ID
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:ID];
 }
 
--(void)addItemWithID:(NSString *)ID item:(ListItem *)item
+-(void)addNoteWithID:(NSString *)ID note:(Note *)note
 {
-    NSData *itemData = [NSKeyedArchiver archivedDataWithRootObject:item];
+    NSData *itemData = [NSKeyedArchiver archivedDataWithRootObject:note];
     
     [[NSUserDefaults standardUserDefaults] setObject:itemData forKey:ID];
     [[NSUserDefaults standardUserDefaults] synchronize];

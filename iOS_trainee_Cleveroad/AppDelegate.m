@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ItemsViewController.h"
+#import "NotesViewController.h"
 #import "DataAPI.h"
 
 @interface AppDelegate ()
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
-    ItemsViewController *viewController = (ItemsViewController *) navigationController.visibleViewController;
+    NotesViewController *viewController = (NotesViewController *) navigationController.visibleViewController;
     viewController.data = [DataAPI sharedInstance];
     
     [self configureSatusBarAppearance];
