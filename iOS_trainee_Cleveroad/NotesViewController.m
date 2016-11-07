@@ -13,7 +13,7 @@
 
 @interface NotesViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *notes;
+@property (nonatomic, strong) NSArray *notes;
 
 @end
 
@@ -22,15 +22,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _notes = nil;
-    _notes = [self.data getNotes];
+    [self getSortedByTitleNotes];
     [self.tableView reloadData];
 }
 
@@ -59,7 +57,7 @@
         NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
         Note *note = _notes[indexPath.row];
         [self.data deleteNoteWithID:note.noteID];
-        _notes = [self.data getNotes];
+        [self getSortedByTitleNotes];
         [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     deleteButton.backgroundColor = [UIColor orangeColor];
@@ -86,6 +84,17 @@
         detailsViewController.data = self.data;
         detailsViewController.note = note;
     }
+}
+
+-(void)getSortedByTitleNotes {
+    _notes = [self.data getNotes];
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"noteTitle"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [_notes sortedArrayUsingDescriptors:sortDescriptors];
+    _notes = nil;
+    _notes = sortedArray;
 }
 
 @end

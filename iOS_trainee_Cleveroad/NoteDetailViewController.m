@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = false;
     [self.titleTextField becomeFirstResponder];
     self.descriptionTextView.scrollEnabled = false;
     if (self.note) {

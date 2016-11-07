@@ -38,7 +38,8 @@
 
 -(void) configureSatusBarAppearance
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarHidden:false];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];    
 }
 
 

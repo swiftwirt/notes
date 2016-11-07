@@ -76,10 +76,10 @@
 		D04D7B241DCE7AF8006F30A7 /* iOS_trainee_Cleveroad */ = {
 			isa = PBXGroup;
 			children = (
-				D04D7BA11DCF8B1B006F30A7 /* Categories */,
-				D04D7B461DCE7B69006F30A7 /* Other */,
 				D04D7B451DCE7B5B006F30A7 /* Controllers */,
 				D04D7B471DCE7B76006F30A7 /* Models */,
+				D04D7BA11DCF8B1B006F30A7 /* Categories */,
+				D04D7B461DCE7B69006F30A7 /* Other */,
 				D04D7B481DCE7B89006F30A7 /* Storyboards&Nibs */,
 				D04D7B251DCE7AF9006F30A7 /* Supporting Files */,
 			);

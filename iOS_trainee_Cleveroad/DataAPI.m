@@ -56,7 +56,6 @@
 {
     NSUInteger id = [self nextNoteID];
     NSString *stringID = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)id];
-    NSLog(@"*****%@", stringID);
     if (description) {
        Note *note = [[Note alloc] initWithTitle:name description:description andID:stringID];
        [_dataModel addNoteWithID:stringID note:note];
@@ -81,8 +80,7 @@
 -(void) handleFirstLaunch {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSUInteger firstTime = [userDefaults integerForKey:@"firstTime"];
-    if (firstTime == 1) {
-        NSLog(@"$$$");        
+    if (firstTime == 1) {       
         [userDefaults setInteger:2 forKey:@"firstTime"];
         [userDefaults synchronize];
     }
