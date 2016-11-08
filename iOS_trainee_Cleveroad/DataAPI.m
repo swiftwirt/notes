@@ -30,7 +30,6 @@
 -(id)init {
     if (self = [super init]) {
          [self registerDefaults];
-         [self handleFirstLaunch];
         _dataModel = [PersistencyManager new];
     }
     return self;
@@ -77,13 +76,16 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 }
 
--(void) handleFirstLaunch {
+-(BOOL) handleFirstLaunch {
+    BOOL firstLaunch = false;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSUInteger firstTime = [userDefaults integerForKey:@"firstTime"];
-    if (firstTime == 1) {       
+    if (firstTime == 1) {
+        firstLaunch = true;
         [userDefaults setInteger:2 forKey:@"firstTime"];
         [userDefaults synchronize];
     }
+    return firstLaunch;
 }
 
 -(NSUInteger) nextNoteID {

@@ -23,6 +23,9 @@
 {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    if ([self.data handleFirstLaunch]) {
+        [self performSegueWithIdentifier:@"EditItem" sender:nil];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -49,7 +52,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self performSegueWithIdentifier:@"EditItem" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    [self performSegueWithIdentifier:@"EditItem" sender:nil];
 }
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,10 +68,16 @@
     return actions;
 }
 
-#pragma mark Actions
+#pragma mark main methods
 
-- (IBAction)onAddItemBarButton:(id)sender {
-    [self performSegueWithIdentifier:@"AddItem" sender:nil];
+-(void)getSortedByTitleNotes {
+    _notes = [self.data getNotes];
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"noteTitle"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [_notes sortedArrayUsingDescriptors:sortDescriptors];
+    _notes = sortedArray;
 }
 
 #pragma mark Segue
@@ -86,15 +95,10 @@
     }
 }
 
--(void)getSortedByTitleNotes {
-    _notes = [self.data getNotes];
-    NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"noteTitle"
-                                                 ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [_notes sortedArrayUsingDescriptors:sortDescriptors];
-    _notes = nil;
-    _notes = sortedArray;
+#pragma mark Actions
+
+- (IBAction)onAddItemBarButton:(id)sender {
+    [self performSegueWithIdentifier:@"AddItem" sender:nil];
 }
 
 @end

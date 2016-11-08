@@ -16,4 +16,6 @@
 - (void)addNoteWithTitle:(NSString *)name andDescription:(NSString *)description;
 - (void) deleteNoteWithID:(NSString *)ID;
 
+-(BOOL) handleFirstLaunch;
+
 @end
